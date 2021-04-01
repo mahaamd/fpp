@@ -14,7 +14,7 @@ public class Main {
     }
 
     public static void isValid(String sub) {
-        int sum = 0,from = 0,to;
+        int valid = 0,from = 0,to;
         String[] args ={};
         sub = sub+"+";
         for (int i = 0; i < sub.length(); i++) {
@@ -24,17 +24,17 @@ public class Main {
             if(sub.charAt(i) == '-' || sub.charAt(i) == '+') {
                 to = i;
                 if (sub.substring(from, to).matches("(-|[+])?[a-zA-Z]+(-|[+])?")) {
-                    sum++;
+                    valid++;
                 } else if (sub.substring(from, to).matches("(-|\\+)?\\d+(-|\\+)?")) {
-                    sum++;
+                    valid++;
                 }
                 from = to;
 
-                if (sum == 0) {
+                if (valid == 0) {
                     System.out.println("Fpp: Wrong input");
                     main(args);
                 }
-                sum = 0;
+                valid = 0;
             }
         }
     }
